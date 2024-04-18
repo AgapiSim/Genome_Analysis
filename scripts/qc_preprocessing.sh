@@ -1,4 +1,5 @@
-########## 1. Quality Control & Trimming / Preprocessing ############                                                                                                                        #The present script is hard coded for the specific Illumina files provided to us for the project 
+########## 1. Quality Control & Trimming / Preprocessing ############                                                                                     
+#The present script is hard coded for the specific Illumina files provided to us for the project 
 
 #Load necessary modules
 module load FastQC/0.11.9
