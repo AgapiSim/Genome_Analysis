@@ -1,5 +1,5 @@
 ########## 1. Quality Control & Trimming / Preprocessing ############                                                                                     
-#The present script is hard coded for the specific Illumina files provided to us for the project 
+#The present script is hard-coded for specific Illumina files provided for the project 
 
 #Load necessary modules
 module load FastQC/0.11.9
@@ -8,9 +8,12 @@ module load trimmomatic/0.39
 #Define variables
 data_path="/home/agsi4287/Genome_Analysis/raw_data/genomics_data"
 results_path="/home/agsi4287/Genome_Analysis/results"
+adapters_path="/sw/bioinfo/trimmomatic/0.39/snowy/adapters"
 
 
-#1.1 Quality Control with FastQC                                                                                                                                                                
+#1.1 Quality Control with FastQC                                                                                                                                                             
+#Iterate for all Iluumina files
+
 cd $data_path/Illumina
 
 for i in $(ls)
@@ -24,7 +27,6 @@ cd ../../../results
 
 #1.2 Reads trimming with trimmomatic                
                                                                                                                               
-adapters_path="/sw/bioinfo/trimmomatic/0.39/snowy/adapters"
 
 java -jar /sw/bioinfo/trimmomatic/0.39/snowy/trimmomatic-0.39.jar PE -threads 2 ${data_path}/Illumina/E745-1.L500_SZAXPI015146-56_1_clean.fq.gz ${data_path}/Illumina/E745-1.L500_SZAXPI015146-56_2_clean.fq.gz E745-1.L500_1_paired.fq.gz E745-1.L500_1_unpaired.fq.gz E745-1.L500_2_paired.fq.gz E745-1.L500_2_unpaired.fq.gz ILLUMINACLIP:$adapters_path/TruSeq3-PE.fa:2:30:10:2:TrueLEADING:20 TRAILING:20                                                                                                                                                                        
 
@@ -38,6 +40,7 @@ java -jar /sw/bioinfo/trimmomatic/0.39/snowy/trimmomatic-0.39.jar PE -threads 2 
 
 
 #1.3 Quality Control of trimmed reads with FastQC 
+#No unpaired reads were absirved
 
 fastqc E745-1.L500_1_paired.fq.gz
 fastqc E745-1.L500_2_paired.fq.gz
