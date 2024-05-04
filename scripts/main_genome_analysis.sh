@@ -6,27 +6,14 @@
 #SBATCH -M snowy
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 06:00:00
+#SBATCH -t 12:00:00
 #SBATCH -J g_assembly_eval_aes
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user aesimaiaki@gmail.com
 #SBATCH --output=%x.%j.out
 
-# Load modules
+# Load modules - Each script calls the necessary modules
 module load bioinfo-tools
-module load FastQC/0.11.9
-module load trimmomatic/0.39
-module load Flye/2.9.1 
-module load spades/3.15.5
-module load quast/5.0.2
-module load augustus/3.5.0-20231223-33fc04d
-module load BUSCO/5.5.0
-module load prokka/1.45-5b58020
-module load Pilon/1.24
-module load bwa/0.7.17 
-module load bwa-mem2 
-module load samtools/1.19
-module load blast/2.15.0+
 
 #Set variables & directories
 data_path="/home/agsi4287/Genome_Analysis/raw_data/genomics_data"
