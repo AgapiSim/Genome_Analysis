@@ -38,5 +38,8 @@ prokka \
 
 
 #Remove sequence from .gff file 
-sed '/^##FASTA/Q' ../results/pac_assembly/prokka_annot/E_faecium.gff > ../results/pac_assembly/prokka_annot/E_faecium _noseq.gff
+sed '/^##FASTA/Q' $pacbio_path/prokka_annot/E_faecium.gff > $pacbio_path/prokka_annot/E_faecium _noseq.gff
+
+sed '/^##FASTA/Q' $spades_path/prokka_annot/E_faecium.gff > $spades_path/prokka_annot/E_faecium _noseq.gff
+
 
